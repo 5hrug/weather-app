@@ -1,14 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PeakList from './PeakList';
-import ItemMainValue from './ItemMainValue';
 import HeaderLocation from './HeaderLocation';
 
-function Header() {
+function Header({pressHandler}:any) {
    return (
      <View style={styles.container}>
        <Text>kjnasd asnd kjasnd </Text>
-         <HeaderLocation/>
+         <HeaderLocation pressHandler={pressHandler}/>
       </View>
    );
 }

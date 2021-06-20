@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import DaysList from './DaysList';
-import DetailsList from './DetailsList';
-import MainRow from './MainRow';
-import Header from './Header';
+import { View, Text, StyleSheet, Dimensions,ScrollView } from 'react-native';
+import DetailsList from './DetailItems/DetailsList'; 
+import MainRow from './MainRow/MainRow';
+import Header from './Header/Header';
+import NextDays from './NextDays/DaysList';
 const axios = require('axios').default;
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
-function Panel() {
+function Panel({pressHandler}:any) {
    //dat do zvlast subora
    useEffect(() => {
       axios
@@ -25,30 +26,28 @@ function Panel() {
    }, []);
 
    return (
-      <View style={styles.container}>
-
-
-         {/* <Header/> */}
-         {/* <MainRow /> */}
-         {/* <DetailsList />
-         <DetailsList /> */}
-         {/* <DaysList /> */}
-
-         {/* <DaysList /> */}
-      </View>
+      <ScrollView style={styles.container}>
+         <Header pressHandler={pressHandler}/> 
+         <MainRow />
+         <DetailsList />
+         <DetailsList /> 
+         <NextDays/>
+         <NextDays/>
+      </ScrollView>
    );
 }
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#fff2f2',
+      backgroundColor: '#fabbbb',
       width: '100%',
       position: 'absolute',
-      top: 309,
-      height: height - 333,
-      borderTopLeftRadius:30,
-      borderTopRightRadius:30,
-      justifyContent: 'flex-end',
+      // top: 309,
+      top: width * 0.8 * 0.93,
+      // height: height - 333,
+      height: height,
+      borderTopLeftRadius: 30,
+      borderTopRightRadius: 30,
    },
    panel: {},
 });

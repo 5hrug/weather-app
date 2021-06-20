@@ -6,21 +6,23 @@ import {
    Text,
    Dimensions,
 } from 'react-native';
-import { Image } from 'react-native-elements';
-import Panel from '../Components/MainScreen/Panel';
+
+const windowWidth = Dimensions.get('window').width;
+console.log(windowWidth);
 
 function MainScreen() {
    return (
       <ImageBackground
          source={require('../../assets/graphic.jpg')}
          style={styles.graphic}
-         imageStyle={{ resizeMode : 'contain' }}></ImageBackground>
+         imageStyle={{  }}></ImageBackground>
    );
 }
+// resizeMode : 'contain'
 const styles = StyleSheet.create({
    container: {},
    graphic: {
-      height: 333,
+      height: windowWidth * 0.8, 
    },
    text: {},
 });

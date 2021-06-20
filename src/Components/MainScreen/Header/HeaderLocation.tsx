@@ -1,18 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
 }
-function HeaderLocation(props: Props) {
+
+
+function HeaderLocation({pressHandler}:any) {
    return (
-      <TouchableHighlight>
+      <TouchableOpacity onPress={pressHandler} >
          <View style={styles.container}>
             <Text style={styles.value}>icon</Text>
             <Text style={styles.celsius}>Sunny</Text>
          </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
    );
 }
 const styles = StyleSheet.create({

@@ -11,7 +11,7 @@ const axios = require('axios').default;
 
 const height = Dimensions.get('window').height;
 
-function Panel() {
+function Panel({pressedCity}:any) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
    });
@@ -43,11 +43,11 @@ function Panel() {
             />
             <TextInput
                style={styles.input}
-               placeholder='    Search city ...'
+               placeholder='Search city ...'
                underlineColorAndroid='transparent'
             />
          </View>
-         <CitiesList/>
+         <CitiesList pressedCity={pressedCity}/>
       </View>
    );
 }
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
       width: '100%',
       position: 'absolute',
       top: 29,
-      height: '100%',
+      height: height,
       borderTopLeftRadius:30,
       borderTopRightRadius:30,
       
@@ -81,13 +81,14 @@ const styles = StyleSheet.create({
    input: {
       flex: 1,
       height: 40,
-      margin: 12,
+      margin: 20,
       backgroundColor: '#F3F3F3',
-      position: 'relative',
+      paddingLeft:15,
    },
+
    icon: {
       position: 'absolute',
-      right: 24,
+      right: 30,
       zIndex: 10,
       alignSelf: 'center',
    },

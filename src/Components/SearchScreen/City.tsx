@@ -1,18 +1,28 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useContext,useRef } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {
    useFonts,
    Barlow_400Regular,
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
+import { ThemeContext } from 'react-native-elements';
 
-function City() {
-   return (
-      <View style={styles.container}>
-         <Text style={styles.city}>asd</Text>
-         <Text style={styles.temperature}>35&deg;C</Text>
-      </View>
-   );
+function City({ pressedCity,city }: any) {
+   let [fontsLoaded] = useFonts({
+      Barlow_400Regular,
+      Barlow_300Light,
+   });
+
+   if (!fontsLoaded) return <View></View>;
+   else
+      return (
+         <TouchableOpacity style={styles.container} onPress={() => pressedCity(city)}>
+            <>
+               <Text style={styles.city}>{city}</Text>
+               <Text style={styles.temperature}>35&deg;C</Text>
+            </>
+         </TouchableOpacity>
+      );
 }
 
 const styles = StyleSheet.create({
