@@ -7,15 +7,10 @@ import {
    Dimensions,
 } from 'react-native';
 import { Image } from 'react-native-elements';
-import Panel from '../Components/MainScreen/Panel';
+import Panel from '../Components/SearchScreen/Panel';
 
 function MainScreen() {
-   return (
-      <ImageBackground
-         source={require('../../assets/graphic.jpg')}
-         style={styles.graphic}
-         imageStyle={{ resizeMode : 'contain' }}></ImageBackground>
-   );
+   return <Panel />;
 }
 const styles = StyleSheet.create({
    container: {},
