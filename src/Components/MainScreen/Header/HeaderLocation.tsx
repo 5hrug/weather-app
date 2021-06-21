@@ -6,28 +6,35 @@ interface Props {
    WeatherIcon?: 'sunny' | 'windy';
 }
 
-
-function HeaderLocation({pressHandler}:any) {
+function HeaderLocation({ pressHandler }: any) {
    return (
-      <TouchableOpacity onPress={pressHandler} >
-         <View style={styles.container}>
-            <Text style={styles.value}>icon</Text>
-            <Text style={styles.celsius}>Sunny</Text>
-         </View>
+      <TouchableOpacity style={styles.container} onPress={pressHandler}>
+         <>
+            <Text style={styles.locationText}>Kosice, Slovakia</Text>
+            <Text style={styles.icon}>S</Text>
+         </>
       </TouchableOpacity>
    );
 }
 const styles = StyleSheet.create({
    container: {
-      backgroundColor: 'red',
+      backgroundColor: 'rgba(13, 159, 234, 0.08)',
       alignSelf: 'flex-end',
-      borderBottomLeftRadius: 16,
-      borderTopRightRadius: 16,
+      borderBottomLeftRadius: 30,
+      borderTopRightRadius: 30,
       flexDirection: 'row',
+      marginLeft:'auto',
+      width: '41%',
+      height: 48,
+      // justifyContent: 'center',
+      alignItems:'center',
    },
-   celsius: {},
-   value: {},
-   arrow: {},
-   c: {},
+   icon: { color: '#0DA0EA' },
+   locationText: {
+      color: '#0DA0EA',
+      fontSize: 16,
+      marginLeft: 6,
+      
+   },
 });
 export default HeaderLocation;

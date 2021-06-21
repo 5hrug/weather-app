@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import {
+   useFonts,
+   Barlow_500Medium,
+} from '@expo-google-fonts/barlow';
 interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
@@ -8,8 +11,8 @@ interface Props {
 function ItemToday(props: Props) {
    return (
       <View style={styles.container}>
-         <Text style={styles.value}>icon</Text>
-         <Text style={styles.celsius}>Sunny</Text>
+         <Text style={styles.icon}>icon</Text>
+         <Text style={styles.weather}>Sunny</Text>
          
       </View>
    );
@@ -17,13 +20,14 @@ function ItemToday(props: Props) {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'center', 
       alignItems: 'center',
-      backgroundColor: '#ffffff',
    },
-   celsius: {},
-   value: {},
-   arrow: {},
-   c: {},
+   weather: {
+      fontFamily: 'Barlow_500Medium',
+      fontSize:18,
+   },
+   icon: {},
+
 });
 export default ItemToday;

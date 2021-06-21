@@ -32,20 +32,20 @@ function Panel({pressHandler}:any) {
          <DetailsList />
          <DetailsList /> 
          <NextDays/>
-         <NextDays/>
+
+
       </ScrollView>
    );
 }
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#fabbbb',
+      backgroundColor: '#f8dcdc',
       width: '100%',
       position: 'absolute',
       // top: 309,
       top: width * 0.8 * 0.93,
-      // height: height - 333,
-      height: height,
+      height: height - width * 0.8,
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
    },

@@ -6,6 +6,7 @@ function PeakList() {
    return (
       <View style={styles.container}>
          <PeakOfTheDay />
+         <View style={{height:12}}></View>
          <PeakOfTheDay />
       </View>
    );
@@ -13,7 +14,8 @@ function PeakList() {
 
 const styles = StyleSheet.create({
   container: {
-flex: 1,
+      flex: 1,
+     justifyContent:'center',
   },
 
 })

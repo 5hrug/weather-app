@@ -9,7 +9,6 @@ function Day(props: Props) {
    return (
       <View style={styles.container}>
          <Text style={styles.icon}>icon</Text>
-
          <Text style={styles.day}>Day</Text>
          <View style={styles.group}>
             <Text>group</Text>
@@ -20,16 +19,12 @@ function Day(props: Props) {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      // position: 'relative',
       justifyContent: 'center',
       alignItems:'center',
-      backgroundColor: '#ffffff',
       width: 95,
       height: 101, 
       borderRadius: 16,
       margin:20,
-      // paddingLeft:30,
-
       shadowColor: '#000',
       shadowOffset: {
          width: 0,
@@ -42,7 +37,6 @@ const styles = StyleSheet.create({
    day: {},
    icon: {},
    group: {
-      // marginBottom:16,
    },
 });
 export default Day;

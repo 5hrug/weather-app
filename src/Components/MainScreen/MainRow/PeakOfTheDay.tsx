@@ -1,31 +1,34 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import {
+   useFonts,
+   Barlow_300Light,
+} from '@expo-google-fonts/barlow';
 interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
 }
-function PeakOfTheDay(props: Props) {
+function PeakOfTheDay(props: any) {
    return (
       <View style={styles.container}>
-         <Text style={styles.value}>35</Text>
-         <Text style={styles.celsius}>&deg;</Text>
-         <Text style={styles.c}>C</Text>
+         <Text style={styles.value}>35&deg;C</Text>
          <Text style={styles.arrow}>ar</Text>
       </View>
    );
 }
 const styles = StyleSheet.create({
    container: {
-      flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center',
+      justifyContent: 'center', 
       alignItems: 'center',
-      backgroundColor: '#ffffff',
    },
    celsius: {},
-   value: {},
+   value: {
+      color: '#666666',
+      fontSize: 16,
+      fontFamily: 'Barlow_300Light',
+   },
    arrow: {},
-   c: {},
 });
+
 export default PeakOfTheDay;

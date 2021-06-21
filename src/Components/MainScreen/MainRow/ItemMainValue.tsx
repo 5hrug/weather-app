@@ -1,6 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import {
+   useFonts,
+   Barlow_500Medium,
+   Barlow_300Light,
+} from '@expo-google-fonts/barlow';
 interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
@@ -9,8 +14,7 @@ function ItemMainValue(props: Props) {
    return (
       <View style={styles.container}>
          <Text style={styles.value}>35</Text>
-         <Text style={styles.celsius}>&deg;</Text>
-         <Text style={styles.c}>C</Text>
+         <Text style={styles.celsius}>&deg;C</Text>
       </View>
    );
 }
@@ -20,10 +24,17 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#ffffff',
    },
-   celsius: {},
-   value: {},
+   celsius: {
+      fontSize: 24,
+      fontFamily: 'Barlow_500Medium',
+      alignSelf: 'flex-start',
+      marginTop:15
+   },
+   value: {
+      fontSize: 64,
+      fontFamily: 'Barlow_300Light',
+   },
    arrow: {},
    c: {},
 });
