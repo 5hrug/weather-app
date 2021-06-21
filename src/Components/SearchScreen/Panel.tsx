@@ -38,7 +38,7 @@ function Panel({pressedCity}:any) {
             <Ionicons
                style={styles.icon}
                name='location-sharp'
-               size={24}
+               size={19}
                color='black'
             />
             <TextInput
@@ -54,7 +54,7 @@ function Panel({pressedCity}:any) {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#fdbdbd',
+      backgroundColor: '#ffffff',
       width: '100%',
       position: 'absolute',
       top: 29,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 
    icon: {
       position: 'absolute',
-      right: 30,
+      right: 33,
       zIndex: 10,
       alignSelf: 'center',
    },

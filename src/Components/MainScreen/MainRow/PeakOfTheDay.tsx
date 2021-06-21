@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Image } from 'react-native';
 import {
    useFonts,
    Barlow_300Light,
@@ -8,11 +8,12 @@ interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
 }
-function PeakOfTheDay(props: any) {
+
+function PeakOfTheDay({arrow}: any) {
    return (
       <View style={styles.container}>
          <Text style={styles.value}>35&deg;C</Text>
-         <Text style={styles.arrow}>ar</Text>
+         <Image style={styles.arrow} source={arrow} />
       </View>
    );
 }

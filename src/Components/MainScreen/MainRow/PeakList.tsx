@@ -5,9 +5,9 @@ import PeakOfTheDay from './PeakOfTheDay';
 function PeakList() {
    return (
       <View style={styles.container}>
-         <PeakOfTheDay />
+         <PeakOfTheDay arrow={require('../../../../assets/arrowup.png')} />
          <View style={{height:12}}></View>
-         <PeakOfTheDay />
+         <PeakOfTheDay arrow={require('../../../../assets/arrowdown.png')} />
       </View>
    );
 }
