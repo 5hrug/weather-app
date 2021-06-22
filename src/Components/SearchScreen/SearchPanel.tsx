@@ -17,7 +17,7 @@ function Panel({pressedCity}:any) {
    });
 
    if (!fontsLoaded) {
-      return <Text>LOADING</Text>;
+      return  <></>;
     } else return (
       <View style={styles.container}>
          <Text style={styles.title}>Location</Text>

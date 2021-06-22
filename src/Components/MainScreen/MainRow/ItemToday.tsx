@@ -9,7 +9,13 @@ interface Props {
    WeatherIcon?: 'sunny' | 'windy';
 }
 function ItemToday(props: Props) {
-   return (
+   let [fontsLoaded] = useFonts({
+      Barlow_500Medium,
+   });
+
+   if (!fontsLoaded) {
+      return  <></>;
+    } else return (
       <View style={styles.container}>
          <Text style={styles.icon}>icon</Text>
          <Text style={styles.weather}>Sunny</Text>

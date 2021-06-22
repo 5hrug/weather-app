@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { CityPressed } from '../../Context';
+import { Context } from '../../Context';
 
 interface Props {
    day?: string;
@@ -8,7 +8,7 @@ interface Props {
 }
 
 function HeaderLocation({  }: any) {
-   const {pressHandler} = useContext(CityPressed);
+   const {pressHandler} = useContext(Context);
 
 
    return (

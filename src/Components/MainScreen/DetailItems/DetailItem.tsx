@@ -9,14 +9,22 @@ interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
 }
-function DetailItem({icon,term,value}: any) {
-   return (
-      <View style={styles.container}>
-         <Image style={styles.icon} source={icon} />
-         <Text style={styles.value}>Day{value}</Text>
-         <Text style={styles.name}>{term}</Text>
-      </View>
-   );
+function DetailItem({ icon, term, value }: any) {
+   let [fontsLoaded] = useFonts({
+      Barlow_500Medium,
+      Barlow_300Light,
+   });
+
+   if (!fontsLoaded) {
+      return <></>;
+   } else
+      return (
+         <View style={styles.container}>
+            <Image style={styles.icon} source={icon} />
+            <Text style={styles.value}>{value}%</Text>
+            <Text style={styles.name}>{term}</Text>
+         </View>
+      );
 }
 const styles = StyleSheet.create({
    container: {
@@ -29,6 +37,7 @@ const styles = StyleSheet.create({
    value: {
       fontSize: 16,
       fontFamily: 'Barlow_500Medium',
+      letterSpacing: -1,
    },
    name: {
       color: '#999999',

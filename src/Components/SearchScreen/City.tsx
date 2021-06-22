@@ -1,4 +1,4 @@
-import React, { useContext,useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {
    useFonts,
@@ -6,27 +6,22 @@ import {
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 // import {ToggleF} from '../context';
-import { CityPressed} from '../Context';
+import { Context } from '../Context';
 
-function City({ city }:any) {
+function City({ city }: any) {
    let [fontsLoaded] = useFonts({
-      Barlow_400Regular, 
+      Barlow_400Regular,
       Barlow_300Light,
    });
 
-   // const pressed = useCont();
-   // const pressed = useContext(CityPressed);
-   const {pressedCity,data,pressedSearch}= useContext(CityPressed);
-   // console.log('city:',data.main.temp);
-
-   // const weather = useContext(WeatherData);
-   // console.log('city:',weather.main.temp);
-   console.log(pressedSearch);
+   const { pressedCity, data, pressedSearch } = useContext(Context);
 
    if (!fontsLoaded) return <View></View>;
    else
       return (
-         <TouchableOpacity style={styles.container} onPress={() => pressedCity(city)}>
+         <TouchableOpacity
+            style={styles.container}
+            onPress={() => pressedCity(city)}>
             <>
                <Text style={styles.city}>{city}</Text>
                <Text style={styles.temperature}>35&deg;C</Text>

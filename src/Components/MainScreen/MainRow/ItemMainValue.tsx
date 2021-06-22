@@ -11,7 +11,14 @@ interface Props {
    WeatherIcon?: 'sunny' | 'windy';
 }
 function ItemMainValue(props: Props) {
-   return (
+   let [fontsLoaded] = useFonts({
+      Barlow_500Medium,
+      Barlow_300Light,
+   });
+
+   if (!fontsLoaded) {
+      return  <></>;
+    } else return (
       <View style={styles.container}>
          <Text style={styles.value}>35</Text>
          <Text style={styles.celsius}>&deg;C</Text>

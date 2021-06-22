@@ -7,7 +7,7 @@ import {
    Dimensions,
 } from 'react-native';
 import { Image } from 'react-native-elements';
-import Panel from '../Components/SearchScreen/Panel';
+import Panel from '../Components/SearchScreen/SearchPanel';
 
 function MainScreen() {
    return <Panel />;

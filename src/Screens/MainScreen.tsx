@@ -6,15 +6,14 @@ import {
    Text,
    Dimensions,
 } from 'react-native';
-import { CityPressed } from '../Components/Context';
-import SearchPanel from '../Components/SearchScreen/Panel';
+import { Context } from '../Components/Context';
+import SearchPanel from '../Components/SearchScreen/SearchPanel';
 import Panel from '../Components/MainScreen/Panel';
 
 const windowWidth = Dimensions.get('window').width;
 
 function MainScreen() {
-   const { pressedSearch } = useContext(CityPressed);
-   console.log(pressedSearch);
+   const { pressedSearch } = useContext(Context);
    return (
       <>
          <ImageBackground
