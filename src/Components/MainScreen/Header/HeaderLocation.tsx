@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { CityPressed } from '../../Context';
 
 interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
 }
 
-function HeaderLocation({ pressHandler }: any) {
+function HeaderLocation({  }: any) {
+   const {pressHandler} = useContext(CityPressed);
+
+
    return (
       <TouchableOpacity style={styles.container} onPress={pressHandler}>
          <>
@@ -23,18 +27,17 @@ const styles = StyleSheet.create({
       borderBottomLeftRadius: 30,
       borderTopRightRadius: 30,
       flexDirection: 'row',
-      marginLeft:'auto',
+      marginLeft: 'auto',
       width: '41%',
       height: 48,
       // justifyContent: 'center',
-      alignItems:'center',
+      alignItems: 'center',
    },
    icon: { color: '#0DA0EA' },
    locationText: {
       color: '#0DA0EA',
       fontSize: 16,
       marginLeft: 6,
-      
    },
 });
 export default HeaderLocation;

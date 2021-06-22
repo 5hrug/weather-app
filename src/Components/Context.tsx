@@ -8,7 +8,7 @@ const axios = require('axios').default;
 // React.createContext<any>(defaultValue: any): React.Context<any>
 // export const TodosContext = React.createContext();
 export const CityPressed = React.createContext<any | undefined>(undefined);
-export const WeatherData = React.createContext<any | undefined>(undefined);
+// export const WeatherData = React.createContext<any | undefined>(undefined);
 
 // export function useCont() {
 //    return useContext(TodosContext);
@@ -16,26 +16,30 @@ export const WeatherData = React.createContext<any | undefined>(undefined);
 
 const ContextProvider = ({ children }: any) => {
    const [data, setData] = useState({ a: 'teraz' });
+   const [pressedSearch, setPressedSearch] = useState(true);
 
-   const pressedCity = () => {
+   const pressHandler = () => {
+      setPressedSearch(!pressedSearch);
+   };
+
+   const pressedCity = (city: any) => {
+      console.log(city);
+      const town = city ?? 'Bratislava';
       axios
          .get(
-            `https://api.openweathermap.org/data/2.5/weather?q=Bratislava&appid=29501213cfe466764c7b2b83e1e9506e&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${town}&appid=29501213cfe466764c7b2b83e1e9506e&units=metric`
          )
          .then(function (response: any) {
             console.log('som v kontexte!!!');
             console.log('malo by vypisat data', response.data);
             setData(response.data);
          });
-      // setPressedSearch(!pressedSearch);
+      setPressedSearch(!pressedSearch);
    };
-   // pressedCity('Bratislava');
    return (
-      <WeatherData.Provider value={data}>
-         <CityPressed.Provider value={pressedCity}>
+         <CityPressed.Provider value={{pressedSearch,data,pressedCity, pressHandler}}>
             {children}
          </CityPressed.Provider>
-      </WeatherData.Provider>
    );
 };
 

@@ -6,7 +6,7 @@ import {
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 // import {ToggleF} from '../context';
-import { CityPressed,WeatherData} from '../Context';
+import { CityPressed} from '../Context';
 
 function City({ city }:any) {
    let [fontsLoaded] = useFonts({
@@ -15,14 +15,18 @@ function City({ city }:any) {
    });
 
    // const pressed = useCont();
-   const pressed = useContext(CityPressed);
-   const weather = useContext(WeatherData);
-   console.log('city:',weather.main.temp);
+   // const pressed = useContext(CityPressed);
+   const {pressedCity,data,pressedSearch}= useContext(CityPressed);
+   // console.log('city:',data.main.temp);
+
+   // const weather = useContext(WeatherData);
+   // console.log('city:',weather.main.temp);
+   console.log(pressedSearch);
 
    if (!fontsLoaded) return <View></View>;
    else
       return (
-         <TouchableOpacity style={styles.container} onPress={pressed}>
+         <TouchableOpacity style={styles.container} onPress={() => pressedCity(city)}>
             <>
                <Text style={styles.city}>{city}</Text>
                <Text style={styles.temperature}>35&deg;C</Text>

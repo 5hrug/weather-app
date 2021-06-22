@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import {
    StyleSheet,
    View,
@@ -9,23 +8,24 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import IosStatusBar from './src/Components/IosStatusBar';
-
 import MainScreen from './src/Screens/MainScreen';
 import Panel from './src/Components/MainScreen/Panel';
 import SearchPanel from './src/Components/SearchScreen/Panel';
 import { createContext } from 'react';
-import ContextProvider from './src/Components/Context';
+import ContextProvider,{CityPressed} from './src/Components/Context';
 const axios = require('axios').default;
 
 const height = Dimensions.get('window').height;
 
 export default function App() {
-   const [pressedSearch, setPressedSearch] = useState(true);
+   // const [pressedSearch, setPressedSearch] = useState(true);
 
-   const pressHandler = () => {
-      setPressedSearch(!pressedSearch);
-   };
-// pressedCity={pressedCity}
+   // const pressHandler = () => {
+   //    setPressedSearch(!pressedSearch);
+   // };
+
+   // const {pressedSearch}= useContext(CityPressed);
+   // console.log('city:',data.main.temp);
 
    return (
       <ContextProvider >
@@ -33,11 +33,11 @@ export default function App() {
             <IosStatusBar backgroundColor='#000000' textColor='light' />
             <SafeAreaView>
                <MainScreen />
-               {pressedSearch ? (
+               {/* {pressedSearch ? (
                   <SearchPanel  />
                ) : (
-                  <Panel pressHandler={pressHandler} />
-               )}
+                  <Panel  />
+               )} */}
             </SafeAreaView>
          </View>
       </ContextProvider>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
    View,
    StyleSheet,
@@ -6,23 +6,30 @@ import {
    Text,
    Dimensions,
 } from 'react-native';
+import { CityPressed } from '../Components/Context';
+import SearchPanel from '../Components/SearchScreen/Panel';
+import Panel from '../Components/MainScreen/Panel';
 
 const windowWidth = Dimensions.get('window').width;
-console.log(windowWidth);
 
 function MainScreen() {
+   const { pressedSearch } = useContext(CityPressed);
+   console.log(pressedSearch);
    return (
-      <ImageBackground
-         source={require('../../assets/graphic.jpg')}
-         style={styles.graphic}
-         imageStyle={{  }}></ImageBackground>
+      <>
+         <ImageBackground
+            source={require('../../assets/graphic.jpg')}
+            style={styles.graphic}
+            imageStyle={{}}></ImageBackground>
+         {pressedSearch ? <SearchPanel /> : <Panel />}
+      </>
    );
 }
 // resizeMode : 'contain'
 const styles = StyleSheet.create({
    container: {},
    graphic: {
-      height: windowWidth * 0.8, 
+      height: windowWidth * 0.8,
    },
    text: {},
 });
