@@ -1,35 +1,58 @@
 import React from 'react';
+import { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import DetailItem from './DetailItem';
+import { TodosContext } from '../../Context';
 
-function DetailsList({
-   firstIcon,
-   secondIcon,
-   thirdIcon,
-   firstName,
-   secondName,
-   thirdName,
-}: any) {
+function DetailsList() {
+   // const data = useContext(TodosContext);
+
+   setTimeout(() => {
+      
+   }, 1000);
+   // console.log('wat:', data);
+
    return (
       <View style={styles.container}>
-         <DetailItem icon={firstIcon} term={firstName} />
-         <DetailItem icon={secondIcon} term={secondName} />
-         <DetailItem icon={thirdIcon} term={thirdName} />
+         <View style={styles.row}>
+            <DetailItem
+               icon={require('../../../../assets/humidity.png')}
+               term='Humidity'
+               // value={wat.main.humidity}
+            />
+            <DetailItem
+               icon={require('../../../../assets/pressure.png')}
+               term='Pressure'
+            />
+            <DetailItem
+               icon={require('../../../../assets/wind.png')}
+               term='Wind'
+            />
+         </View>
+         <View style={styles.row}>
+            <DetailItem
+               icon={require('../../../../assets/sunrise.png')}
+               term='Sunrise'
+            />
+            <DetailItem
+               icon={require('../../../../assets/sunset.png')}
+               term='Sunset'
+            />
+            <DetailItem
+               icon={require('../../../../assets/daytime.png')}
+               term='Daytime'
+            />
+         </View>
       </View>
    );
 }
 
 const styles = StyleSheet.create({
-   container: {
-      // flex: 1,
+   container: {},
+   row: {
       height: 101,
       width: '100%',
-
       flexDirection: 'row',
-      //  justifyContent: 'space-around',
-      //    alignSelf: 'center',
-      //  marginLeft:100,
-      // alignItems:'flex-end'
    },
 });
 

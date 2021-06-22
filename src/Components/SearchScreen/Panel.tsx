@@ -15,20 +15,7 @@ function Panel({pressedCity}:any) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
    });
-   //dat do zvlast subora
-   useEffect(() => {
-      axios
-         .get(
-            'https://api.openweathermap.org/data/2.5/weather?q=bratislava&appid=29501213cfe466764c7b2b83e1e9506e'
-         )
-         .then(function (response: any) {
-            // console.log(response.data.coord);
-         })
-         .catch(function (error: any) {
-            console.log('mojeror');
-            console.log(error);
-         });
-   }, []);
+
    if (!fontsLoaded) {
       return <Text>LOADING</Text>;
     } else return (
@@ -47,7 +34,7 @@ function Panel({pressedCity}:any) {
                underlineColorAndroid='transparent'
             />
          </View>
-         <CitiesList pressedCity={pressedCity}/>
+         <CitiesList />
       </View>
    );
 }

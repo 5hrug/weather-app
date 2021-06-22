@@ -14,7 +14,10 @@ function DaysList() {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+      flexDirection: 'row',
+      marginBottom: 30,
+     marginHorizontal:'3%',
+   //   justifyContent:'space-around'
   },
 
 })

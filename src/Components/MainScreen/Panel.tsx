@@ -10,41 +10,27 @@ const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
 function Panel({ pressHandler }: any) {
-   //dat do zvlast subora
-   useEffect(() => {
-      axios
-         .get(
-            'https://api.openweathermap.org/data/2.5/weather?q=bratislava&appid=29501213cfe466764c7b2b83e1e9506e'
-         )
-         .then(function (response: any) {
-            console.log(response.data.coord);
-         })
-         .catch(function (error: any) {
-            console.log('mojeror');
-            console.log(error);
-         });
-   }, []);
 
    return (
       <ScrollView style={styles.container}>
          <Header pressHandler={pressHandler} />
          <MainRow />
          <DetailsList
-            firstIcon={require('../../../assets/humidity.png')}
-            secondIcon={require('../../../assets/pressure.png')}
-            thirdIcon={require('../../../assets/wind.png')}
-            firstName='Humidity'
-            secondName='Pressure'
-            thirdName='Wind'
+            // firstIcon={require('../../../assets/humidity.png')}
+            // secondIcon={require('../../../assets/pressure.png')}
+            // thirdIcon={require('../../../assets/wind.png')}
+            // firstName='Humidity'
+            // secondName='Pressure'
+            // thirdName='Wind'
          />
-         <DetailsList
+         {/* <DetailsList
             firstIcon={require('../../../assets/sunrise.png')}
             secondIcon={require('../../../assets/sunset.png')}
             thirdIcon={require('../../../assets/daytime.png')}
             firstName='Sunrise'
             secondName='Sunset'
             thirdName='Daytime'
-         />
+         /> */}
          <NextDays />
       </ScrollView>
    );
