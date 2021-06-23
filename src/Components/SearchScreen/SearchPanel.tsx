@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput,ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {Context} from '../Utils/Context';
 import {cities} from '../Utils/Helpers';
+import City from './City';
 import {
    useFonts,
    Barlow_500Medium,
    Barlow_500Medium_Italic,
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
-import City from './City';
-import { useState } from 'react';
 
 const axios = require('axios').default;
 

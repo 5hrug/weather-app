@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import { Context } from '../Components/Utils/Context';
+import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import SearchPanel from '../Components/SearchScreen/SearchPanel';
 import Panel from '../Components/MainScreen/Panel';
 
@@ -10,11 +10,12 @@ function MainScreen() {
    const { changePanel } = useContext(Context);
    return (
       <>
-         <ImageBackground
+         {/* <ImageBackground
             source={require('../../assets/graphic.jpg')}
             style={styles.graphic}
-            imageStyle={{}}></ImageBackground>
-         {changePanel ? <SearchPanel /> : <Panel />}
+            imageStyle={{}}></ImageBackground> */}
+         {/* {changePanel ? <SearchPanel /> : <Panel />} */}
+         <Panel />
       </>
    );
 }

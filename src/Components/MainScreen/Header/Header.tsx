@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import HeaderLocation from './HeaderLocation';
 import moment from 'moment';
 
-function Header({ pressHandler }: any) {
+function Header() {
    const [tim, setTime] = useState(
       moment().format('dddd, DD MMM YYYY | hh:mmA')
   );
@@ -15,7 +15,7 @@ function Header({ pressHandler }: any) {
    return (
       <View style={styles.container}>
          <Text style={styles.timeDateText}>{tim}</Text>
-         <HeaderLocation pressHandler={pressHandler} />
+         <HeaderLocation />
       </View>
    );
 }
@@ -23,8 +23,6 @@ function Header({ pressHandler }: any) {
 const styles = StyleSheet.create({
    container: {
       flexDirection: 'row',
-      marginTop: 5,
-      
    },
    timeDateText: {
       alignSelf: 'center',

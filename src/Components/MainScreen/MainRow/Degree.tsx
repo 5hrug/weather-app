@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontFamily: 'Barlow_500Medium',
       alignSelf: 'flex-start',
+      marginLeft:4,
    },
    value: {
       fontSize: 64,
