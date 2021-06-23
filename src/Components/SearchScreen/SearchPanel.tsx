@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useFonts, Barlow_500Medium } from '@expo-google-fonts/barlow';
+import { useFonts, Barlow_500Medium, Barlow_500Medium_Italic } from '@expo-google-fonts/barlow';
 import CitiesList from './CitiesList';
 
 const axios = require('axios').default;
@@ -11,6 +11,7 @@ const height = Dimensions.get('window').height;
 function Panel({ pressedCity }: any) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
+      Barlow_500Medium_Italic,
    });
    return (
       <>
@@ -28,6 +29,10 @@ function Panel({ pressedCity }: any) {
                      style={styles.input}
                      placeholder='Search city ...'
                      underlineColorAndroid='transparent'
+                     // onChangeText={() => { }}
+                     // value='skuska'
+
+
                   />
                </View>
                <CitiesList />
@@ -67,6 +72,8 @@ const styles = StyleSheet.create({
       margin: 20,
       backgroundColor: '#F3F3F3',
       paddingLeft: 15,
+      fontSize: 18,
+      fontFamily:'Barlow_500Medium_Italic',
    },
 
    icon: {
