@@ -5,7 +5,6 @@ import {
    Barlow_400Regular,
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
-// import {ToggleF} from '../context';
 import { Context } from '../Context';
 
 function City({ city }: any) {

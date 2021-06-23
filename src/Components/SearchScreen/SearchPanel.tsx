@@ -1,18 +1,37 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useFonts, Barlow_500Medium, Barlow_500Medium_Italic } from '@expo-google-fonts/barlow';
+import {
+   useFonts,
+   Barlow_500Medium,
+   Barlow_500Medium_Italic,
+} from '@expo-google-fonts/barlow';
 import CitiesList from './CitiesList';
+import City from './City';
+import { useState } from 'react';
 
 const axios = require('axios').default;
 
 const height = Dimensions.get('window').height;
 
-function Panel({ pressedCity }: any) {
+function Panel() {
+   const [searchedCity, setSearchedCity] = useState('');
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
       Barlow_500Medium_Italic,
    });
+   const cities = [
+      'Bratislava',
+      'Humenné',
+      'Koromľa',
+      'Košice',
+      'Michalovce',
+      'Sobrance',
+   ];
+   const lowCaseCities = cities.map((city) => {
+     return  city.toLowerCase();
+   })
+
    return (
       <>
          {fontsLoaded && (
@@ -29,13 +48,16 @@ function Panel({ pressedCity }: any) {
                      style={styles.input}
                      placeholder='Search city ...'
                      underlineColorAndroid='transparent'
-                     // onChangeText={() => { }}
-                     // value='skuska'
-
-
+                     onChangeText={(value) => {
+                        setSearchedCity(value);
+                     }}
                   />
                </View>
-               <CitiesList />
+               {cities
+                  .filter((city) => city.toLowerCase().startsWith(searchedCity.toLowerCase()))
+                  .map((city, i) => {
+                     return <City key={city} city={city} />;
+                  })}
             </View>
          )}
       </>
@@ -73,7 +95,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#F3F3F3',
       paddingLeft: 15,
       fontSize: 18,
-      fontFamily:'Barlow_500Medium_Italic',
+      fontFamily: 'Barlow_500Medium_Italic',
    },
 
    icon: {
