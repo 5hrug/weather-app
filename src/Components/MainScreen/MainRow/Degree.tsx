@@ -41,13 +41,14 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontFamily: 'Barlow_500Medium',
       alignSelf: 'flex-start',
-      marginTop: 15,
    },
    value: {
       fontSize: 64,
+      lineHeight: 64,
+      height: 54,
+      marginLeft: 15,
+      letterSpacing: -3,
       fontFamily: 'Barlow_300Light',
    },
-   arrow: {},
-   c: {},
 });
 export default ItemMainValue;

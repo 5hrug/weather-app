@@ -6,7 +6,6 @@ import moment from 'moment';
 
 function DaysList() {
    const { forecast } = useContext(Context);
-   forecast && console.log(forecast);
    return (
       <>
          {forecast && (

@@ -19,7 +19,7 @@ function DetailItem({ icon, term, value, scale }: any) {
       <>
          {fontsLoaded && (
             <View style={styles.container}>
-               <Image style={styles.icon} source={icon} />
+               <Image source={icon} />
                <Text style={styles.value}>
                   {value} {scale}
                </Text>
@@ -34,19 +34,18 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      width: 95,
-      height: 101,
+     
    },
    value: {
       fontSize: 16,
       fontFamily: 'Barlow_500Medium',
       letterSpacing: -1,
+      margin:2,
    },
    name: {
       color: '#999999',
       fontSize: 10,
       fontFamily: 'Barlow_500Medium',
    },
-   icon: {},
 });
 export default DetailItem;

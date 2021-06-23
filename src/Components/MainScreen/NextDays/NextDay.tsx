@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useFonts, Barlow_500Medium } from '@expo-google-fonts/barlow';
 interface Props {
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
    day: {
       fontSize: 16,
    },
-   icon: {},
    gap: {
       width: 6,
    },

@@ -23,10 +23,12 @@ function Header({ pressHandler }: any) {
 const styles = StyleSheet.create({
    container: {
       flexDirection: 'row',
+      marginTop: 5,
+      
    },
    timeDateText: {
       alignSelf: 'center',
-      marginLeft: 8,
+      marginLeft: 10,
       fontSize: 14,
       color: '#999999',
    },

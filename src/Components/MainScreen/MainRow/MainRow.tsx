@@ -18,7 +18,10 @@ const styles = StyleSheet.create({
    container: {
       flexDirection: 'row',
       alignItems: 'center',
-      
+      height: 70,
+      marginVertical: 20,
+      marginHorizontal: '3%',
+
    },
 });
 
