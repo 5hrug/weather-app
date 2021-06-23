@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       shadowColor: '#000',
       shadowOffset: {
-         width: 0,
-         height: 8,
+         width: 2,
+         height: 2,
       },
-      shadowOpacity: 1,
-      shadowRadius: 24,
+      shadowOpacity: 0.15,
+      shadowRadius: 5,
       elevation: 24,
    },
    day: {
