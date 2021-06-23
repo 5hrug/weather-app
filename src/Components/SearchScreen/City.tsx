@@ -14,20 +14,22 @@ function City({ city }: any) {
       Barlow_300Light,
    });
 
-   const { pressedCity, data, pressedSearch } = useContext(Context);
+   const { handlePressedCity } = useContext(Context);
 
-   if (!fontsLoaded) return <View></View>;
-   else
-      return (
-         <TouchableOpacity
-            style={styles.container}
-            onPress={() => pressedCity(city)}>
-            <>
-               <Text style={styles.city}>{city}</Text>
-               <Text style={styles.temperature}>35&deg;C</Text>
-            </>
-         </TouchableOpacity>
-      );
+   return (
+      <>
+         {fontsLoaded && (
+            <TouchableOpacity
+               style={styles.container}
+               onPress={() => handlePressedCity(city)}>
+               <>
+                  <Text style={styles.city}>{city}</Text>
+                  <Text style={styles.temperature}>35&deg;C</Text>
+               </>
+            </TouchableOpacity>
+         )}
+      </>
+   );
 }
 
 const styles = StyleSheet.create({

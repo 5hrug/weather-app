@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Context } from '../../Context';
 
 interface Props {
@@ -7,15 +7,17 @@ interface Props {
    WeatherIcon?: 'sunny' | 'windy';
 }
 
-function HeaderLocation({  }: any) {
-   const {pressHandler} = useContext(Context);
-
+function HeaderLocation({}: any) {
+   const { pressHandler, pressedCity } = useContext(Context);
 
    return (
       <TouchableOpacity style={styles.container} onPress={pressHandler}>
          <>
-            <Text style={styles.locationText}>Kosice, Slovakia</Text>
-            <Text style={styles.icon}>S</Text>
+            <Text style={styles.locationText}>{pressedCity}, Slovakia</Text>
+            <Image
+               style={styles.icon}
+               source={require('../../../../assets/location.png')}
+            />
          </>
       </TouchableOpacity>
    );
@@ -30,10 +32,11 @@ const styles = StyleSheet.create({
       marginLeft: 'auto',
       width: '41%',
       height: 48,
-      // justifyContent: 'center',
       alignItems: 'center',
    },
-   icon: { color: '#0DA0EA' },
+   icon: {
+      marginLeft: 3,
+   },
    locationText: {
       color: '#0DA0EA',
       fontSize: 16,

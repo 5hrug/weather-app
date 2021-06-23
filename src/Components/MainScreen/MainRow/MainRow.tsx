@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PeakList from './PeakList';
-import ItemMainValue from './ItemMainValue';
-import ItemToday from './ItemToday';
+import PeakList from './Peak/PeakList';
+import ItemMainValue from './Degree';
+import ItemToday from './Description';
 
 function MainRow() {
    return (
@@ -17,6 +17,8 @@ function MainRow() {
 const styles = StyleSheet.create({
    container: {
       flexDirection: 'row',
+      alignItems: 'center',
+      
    },
 });
 

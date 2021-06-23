@@ -6,20 +6,21 @@ interface Props {
    WeatherIcon?: 'sunny' | 'windy';
 }
 
-function PeakOfTheDay({ arrow }: any) {
+function PeakOfTheDay({ arrow,degree }: any) {
    let [fontsLoaded] = useFonts({
       Barlow_300Light,
    });
 
-   if (!fontsLoaded) {
-      return  <></>;
-   } else
-      return (
-         <View style={styles.container}>
-            <Text style={styles.value}>35&deg;C</Text>
-            <Image style={styles.arrow} source={arrow} />
-         </View>
-      );
+   return (
+      <>
+         {fontsLoaded && (
+            <View style={styles.container}>
+               <Text style={styles.value}>{degree}&deg;C</Text>
+               <Image style={styles.arrow} source={arrow} />
+            </View>
+         )}
+      </>
+   );
 }
 const styles = StyleSheet.create({
    container: {

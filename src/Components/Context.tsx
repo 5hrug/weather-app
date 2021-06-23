@@ -1,45 +1,66 @@
-import React, { useState, useContext } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import returnLatLon from './LatLonHelper';
 const axios = require('axios').default;
 
 export const Context = React.createContext<any | undefined>(undefined);
-// export const Context = React.createContext();
 
-export function useTodoContext() {
-   const {data} = useContext(Context)
-   if (data === undefined) {
-     throw new Error("useTodoContext must be within TodoProvider")
-   }
-   return data
-}
- 
-
-const ContextProvider = ({ children }:any) => {
+const ContextProvider = ({ children }: any) => {
    const [data, setData] = useState<any | undefined>(undefined);
+   const [forecast, setForecast] = useState<any | undefined>(undefined);
    const [pressedSearch, setPressedSearch] = useState(true);
+   const [pressedCity, setPressedCity] = useState('');
 
    const pressHandler = () => {
       setPressedSearch(!pressedSearch);
    };
 
-   const pressedCity = (city:any) => { 
+   const handlePressedCity = (city: any) => {
       console.log(city);
       const town = city ?? 'Bratislava';
+      const { lat, lon } = returnLatLon(town);
+      console.log('lat', lat, 'lon', lon);
+
+      // It didnt work with Promise.all because of error ->
+      // "Can't perform a React state update on an unmounted component."
+      // I was not sure if fixing it was necessary and how much time i should have take for it.
+      
+      // Promise.all([weatherPromise, forecastPromise]).then(
+      //    (response: any) => {
+      //       setData(response[0].data);
+      //       setForecast(response[1].data);
+      //    }
+      // );
       axios
          .get(
             `https://api.openweathermap.org/data/2.5/weather?q=${town}&appid=29501213cfe466764c7b2b83e1e9506e&units=metric`
          )
-         .then(function (response:any) {
+         .then((response: any) => {
             setData(response.data);
-            console.log('dalo set data');
          });
+      axios
+         .get(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=29501213cfe466764c7b2b83e1e9506e`
+         )
+         .then((response: any) => {
+            setForecast(response.data);
+         });
+
+      setPressedCity(city);
       setPressedSearch(!pressedSearch);
    };
+
    return (
-      <Context.Provider value={{data, pressedCity, pressHandler,pressedSearch}}>
-            {children}
-         </Context.Provider>
+      <Context.Provider
+         value={{
+            data,
+            forecast,
+            pressedCity,
+            pressedSearch,
+            handlePressedCity,
+            pressHandler,
+         }}>
+         {children}
+      </Context.Provider>
    );
 };
-//  value={{pressedSearch, data, pressedCity, pressHandler}}
 export default ContextProvider;

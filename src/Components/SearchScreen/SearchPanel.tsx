@@ -1,41 +1,39 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import {
-   useFonts,
-   Barlow_500Medium,
-} from '@expo-google-fonts/barlow';
+import { useFonts, Barlow_500Medium } from '@expo-google-fonts/barlow';
 import CitiesList from './CitiesList';
 
 const axios = require('axios').default;
 
 const height = Dimensions.get('window').height;
 
-function Panel({pressedCity}:any) {
+function Panel({ pressedCity }: any) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
    });
-
-   if (!fontsLoaded) {
-      return  <></>;
-    } else return (
-      <View style={styles.container}>
-         <Text style={styles.title}>Location</Text>
-         <View style={styles.wrapper}>
-            <Ionicons
-               style={styles.icon}
-               name='location-sharp'
-               size={19}
-               color='black'
-            />
-            <TextInput
-               style={styles.input}
-               placeholder='Search city ...'
-               underlineColorAndroid='transparent'
-            />
-         </View>
-         <CitiesList />
-      </View>
+   return (
+      <>
+         {fontsLoaded && (
+            <View style={styles.container}>
+               <Text style={styles.title}>Location</Text>
+               <View style={styles.wrapper}>
+                  <Ionicons
+                     style={styles.icon}
+                     name='location-sharp'
+                     size={19}
+                     color='black'
+                  />
+                  <TextInput
+                     style={styles.input}
+                     placeholder='Search city ...'
+                     underlineColorAndroid='transparent'
+                  />
+               </View>
+               <CitiesList />
+            </View>
+         )}
+      </>
    );
 }
 const styles = StyleSheet.create({
@@ -46,9 +44,8 @@ const styles = StyleSheet.create({
       position: 'absolute',
       top: 29,
       height: height,
-      borderTopLeftRadius:30,
-      borderTopRightRadius:30,
-      
+      borderTopLeftRadius: 30,
+      borderTopRightRadius: 30,
    },
    wrapper: {
       flexDirection: 'row',
@@ -61,16 +58,15 @@ const styles = StyleSheet.create({
       alignSelf: 'center',
       marginTop: 20,
       color: '#999999',
-      fontSize: 16, 
-      fontFamily:'Barlow_500Medium',
-
+      fontSize: 16,
+      fontFamily: 'Barlow_500Medium',
    },
    input: {
       flex: 1,
       height: 40,
       margin: 20,
       backgroundColor: '#F3F3F3',
-      paddingLeft:15,
+      paddingLeft: 15,
    },
 
    icon: {

@@ -9,22 +9,25 @@ interface Props {
    day?: string;
    WeatherIcon?: 'sunny' | 'windy';
 }
-function DetailItem({ icon, term, value }: any) {
+function DetailItem({ icon, term, value, scale }: any) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
       Barlow_300Light,
    });
 
-   if (!fontsLoaded) {
-      return <></>;
-   } else
-      return (
-         <View style={styles.container}>
-            <Image style={styles.icon} source={icon} />
-            <Text style={styles.value}>{value}%</Text>
-            <Text style={styles.name}>{term}</Text>
-         </View>
-      );
+   return (
+      <>
+         {fontsLoaded && (
+            <View style={styles.container}>
+               <Image style={styles.icon} source={icon} />
+               <Text style={styles.value}>
+                  {value} {scale}
+               </Text>
+               <Text style={styles.name}>{term}</Text>
+            </View>
+         )}
+      </>
+   );
 }
 const styles = StyleSheet.create({
    container: {
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
    },
    name: {
       color: '#999999',
-      fontSize: 8,
+      fontSize: 10,
       fontFamily: 'Barlow_500Medium',
    },
    icon: {},
