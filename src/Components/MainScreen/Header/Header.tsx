@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
       marginLeft: 10,
       fontSize: 14,
       color: '#999999',
+      flex: 1,
+      flexWrap: 'wrap'
    },
 });
 

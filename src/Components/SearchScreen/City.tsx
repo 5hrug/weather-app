@@ -1,13 +1,14 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {
    useFonts,
    Barlow_400Regular,
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
-import { Context } from '../Context';
+import { Context } from '../Utils/Context';
 
 function City({ city }: any) {
+
    let [fontsLoaded] = useFonts({
       Barlow_400Regular,
       Barlow_300Light,

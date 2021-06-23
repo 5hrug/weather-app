@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Context } from '../../Context';
+import { Context } from '../../Utils/Context';
 
 interface Props {
    day?: string;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context } from '../../Context';
+import { Context } from '../../Utils/Context';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useFonts, Barlow_500Medium } from '@expo-google-fonts/barlow';
 interface Props {

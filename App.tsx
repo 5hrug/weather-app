@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 import {
    StyleSheet,
    View,
@@ -7,9 +7,9 @@ import {
    Dimensions,
 } from 'react-native';
 import Constants from 'expo-constants';
-import IosStatusBar from './src/Components/IosStatusBar';
+import IosStatusBar from './src/Components/Utils/IosStatusBar';
 import MainScreen from './src/Screens/MainScreen';
-import ContextProvider from './src/Components/Context';
+import ContextProvider from './src/Components/Utils/Context';
 
 const height = Dimensions.get('window').height;
 
@@ -20,7 +20,7 @@ export default function App() {
             <IosStatusBar backgroundColor='#000000' textColor='light' />
             <SafeAreaView>
                <MainScreen />
-            </SafeAreaView> 
+            </SafeAreaView>
          </View>
       </ContextProvider>
    );

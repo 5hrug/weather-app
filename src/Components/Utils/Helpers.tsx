@@ -1,5 +1,28 @@
+export const cities = [
+   'Bratislava',
+   'Humenné',
+   'Koromľa',
+   'Košice',
+   'Michalovce',
+   'Sobrance',
+];
 
-const returnLatLon = (town: string) => {
+export const convertUnix = (
+   unix_timestamp: number,
+   timezone: number,
+   daytime?: boolean
+) => {
+   const date = new Date(unix_timestamp * 1e3);
+   console.log(date);
+   const actualHours = date.getHours() + timezone / 3600;
+   const hours = actualHours > 12 ? actualHours - 12 : actualHours;
+   const minutes = '0' + date.getMinutes();
+   if (daytime) return `${hours}h ${minutes.substr(-2)}m`;
+   else return hours + ':' + minutes.substr(-2);
+};
+
+
+export const returnLatLon = (town: string) => {
   let lat;
   let lon;
   switch (town) {

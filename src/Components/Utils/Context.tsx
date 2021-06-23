@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import returnLatLon from './LatLonHelper';
+import {returnLatLon} from './Helpers';
 const axios = require('axios').default;
 
 export const Context = React.createContext<any | undefined>(undefined);

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PeakOfTheDay from './PeakDegree';
-import { Context } from '../../../Context';
+import { Context } from '../../../Utils/Context';
 
 function PeakList() {
    const { data } = useContext(Context); 

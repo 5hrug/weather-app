@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import {cities} from '../Utils/Helpers';
 import {
    useFonts,
    Barlow_500Medium,
    Barlow_500Medium_Italic,
 } from '@expo-google-fonts/barlow';
-import CitiesList from './CitiesList';
 import City from './City';
 import { useState } from 'react';
 
@@ -20,17 +20,6 @@ function Panel() {
       Barlow_500Medium,
       Barlow_500Medium_Italic,
    });
-   const cities = [
-      'Bratislava',
-      'Humenné',
-      'Koromľa',
-      'Košice',
-      'Michalovce',
-      'Sobrance',
-   ];
-   const lowCaseCities = cities.map((city) => {
-     return  city.toLowerCase();
-   })
 
    return (
       <>

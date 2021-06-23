@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Context } from '../../Context';
+import { Context } from '../../Utils/Context';
 import {
    useFonts,
    Barlow_500Medium,

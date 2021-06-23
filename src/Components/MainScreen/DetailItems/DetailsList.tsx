@@ -2,21 +2,8 @@ import React from 'react';
 import { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import DetailItem from './DetailItem';
-import { Context } from '../../Context';
-
-const convertUnix = (
-   unix_timestamp: number,
-   timezone: number,
-   daytime?: boolean
-) => {
-   const date = new Date(unix_timestamp * 1e3);
-   console.log(date);
-   const actualHours = date.getHours() + timezone / 3600;
-   const hours = actualHours > 12 ? actualHours - 12 : actualHours;
-   const minutes = '0' + date.getMinutes();
-   if (daytime) return `${hours}h ${minutes}m`;
-   else return hours + ':' + minutes.substr(-2);
-};
+import { Context } from '../../Utils/Context';
+import { convertUnix } from '../../Utils/Helpers';
 
 function DetailsList() {
    const { data } = useContext(Context);
@@ -25,7 +12,7 @@ function DetailsList() {
       return (
          <>
             {data && (
-               <View style={styles.container}>
+               <View>
                   <View style={styles.row}>
                      <DetailItem
                         icon={require('../../../../assets/humidity.png')}
@@ -75,12 +62,10 @@ function DetailsList() {
 }
 
 const styles = StyleSheet.create({
-   container: {},
    row: {
       height: 100,
       flexDirection: 'row',
       marginHorizontal: '3%',
-
    },
 });
 
