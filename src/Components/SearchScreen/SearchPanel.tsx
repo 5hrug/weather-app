@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, Dimensions, TextInput,ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import {Context} from '../Utils/Context';
 import {cities} from '../Utils/Helpers';
 import {
    useFonts,
    Barlow_500Medium,
    Barlow_500Medium_Italic,
+   Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 import City from './City';
 import { useState } from 'react';
@@ -15,6 +17,7 @@ const axios = require('axios').default;
 const height = Dimensions.get('window').height;
 
 function Panel() {
+   const { loading } = useContext(Context);
    const [searchedCity, setSearchedCity] = useState('');
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
@@ -25,6 +28,8 @@ function Panel() {
       <>
          {fontsLoaded && (
             <View style={styles.container}>
+                  { loading && <ActivityIndicator style={styles.activityIndicator} size="large" color="#000000" />}
+
                <Text style={styles.title}>Location</Text>
                <View style={styles.wrapper}>
                   <Ionicons
@@ -93,5 +98,10 @@ const styles = StyleSheet.create({
       zIndex: 10,
       alignSelf: 'center',
    },
+   activityIndicator: {
+      position: 'absolute',
+      alignSelf: 'center',
+      top: 300,
+   }
 });
 export default Panel;

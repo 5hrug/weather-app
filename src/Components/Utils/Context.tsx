@@ -7,15 +7,16 @@ export const Context = React.createContext<any | undefined>(undefined);
 const ContextProvider = ({ children }: any) => {
    const [data, setData] = useState<any | undefined>(undefined);
    const [forecast, setForecast] = useState<any | undefined>(undefined);
-   const [pressedSearch, setPressedSearch] = useState(true);
+   const [changePanel, setchangePanel] = useState(true);
    const [pressedCity, setPressedCity] = useState('');
+   const [loading, setloading] = useState(false);
 
    const pressHandler = () => {
-      setPressedSearch(!pressedSearch);
+      setchangePanel(!changePanel);
    };
 
    const handlePressedCity = (city: any) => {
-      console.log(city);
+      setloading(true);
       const town = city ?? 'Bratislava';
       const { lat, lon } = returnLatLon(town);
       const weatherPromise = axios.get(
@@ -29,7 +30,8 @@ const ContextProvider = ({ children }: any) => {
          setData(response[0].data);
          setForecast(response[1].data);
          setPressedCity(city);
-         setPressedSearch(!pressedSearch);
+         setloading(false);
+         setchangePanel(!changePanel);
       });
    };
 
@@ -39,7 +41,8 @@ const ContextProvider = ({ children }: any) => {
             data,
             forecast,
             pressedCity,
-            pressedSearch,
+            changePanel,
+            loading,
             handlePressedCity,
             pressHandler,
          }}>

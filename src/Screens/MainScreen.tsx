@@ -7,14 +7,14 @@ import Panel from '../Components/MainScreen/Panel';
 const windowWidth = Dimensions.get('window').width;
 
 function MainScreen() {
-   const { pressedSearch } = useContext(Context);
+   const { changePanel } = useContext(Context);
    return (
       <>
          <ImageBackground
             source={require('../../assets/graphic.jpg')}
             style={styles.graphic}
             imageStyle={{}}></ImageBackground>
-         {pressedSearch ? <SearchPanel /> : <Panel />}
+         {changePanel ? <SearchPanel /> : <Panel />}
       </>
    );
 }
