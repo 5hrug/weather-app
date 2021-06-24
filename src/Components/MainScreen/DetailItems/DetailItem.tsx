@@ -6,10 +6,12 @@ import {
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 interface Props {
-   day?: string;
-   WeatherIcon?: 'sunny' | 'windy';
+   icon: any;
+   term: string;
+   value: string;
+   scale?: string;
 }
-function DetailItem({ icon, term, value, scale }: any) {
+function DetailItem({ icon, term, value, scale }: Props) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
       Barlow_300Light,
