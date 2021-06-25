@@ -2,11 +2,8 @@ import React, { useContext } from 'react';
 import { Context } from '../../Utils/Context';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useFonts, Barlow_500Medium } from '@expo-google-fonts/barlow';
-interface Props {
-   day?: string;
-   WeatherIcon?: 'sunny' | 'windy';
-}
-function ItemToday(props: Props) {
+
+function ItemToday() {
    const { data } = useContext(Context);
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,

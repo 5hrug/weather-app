@@ -2,10 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useFonts, Barlow_500Medium } from '@expo-google-fonts/barlow';
 interface Props {
-   day?: string;
-   WeatherIcon?: 'sunny' | 'windy';
+   icon: any;
+   day: string;
+   top: number;
+   bot: number;
 }
-function Day({ icon, day, top, bot }: any) {
+function Day({ icon, day, top, bot }: Props) {
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
    });
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
          height: 8,
       },
       shadowOpacity: 0.1,
-      shadowRadius: 24, 
+      shadowRadius: 24,
       elevation: 10,
    },
    day: {

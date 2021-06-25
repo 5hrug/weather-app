@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import PeakOfTheDay from './PeakDegree';
 import { Context } from '../../../Utils/Context';
 
 function PeakList() {
-   const { data } = useContext(Context); 
+   const { data } = useContext(Context);
 
    return (
       <>
@@ -18,7 +18,6 @@ function PeakList() {
                <PeakOfTheDay
                   arrow={require('../../../../../assets/arrowdown.png')}
                   degree={Math.round(data.main.temp_min)}
-
                />
             </View>
          )}

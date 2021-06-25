@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import PeakList from './Peak/PeakList';
 import ItemMainValue from './Degree';
 import ItemToday from './Description';
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
       height: 70,
       marginVertical: 20,
       marginHorizontal: '3%',
-
    },
 });
 

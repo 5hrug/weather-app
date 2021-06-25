@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { useFonts, Barlow_300Light } from '@expo-google-fonts/barlow';
 interface Props {
-   day?: string;
-   WeatherIcon?: 'sunny' | 'windy';
+   arrow: any;
+   degree: number;
 }
 
-function PeakOfTheDay({ arrow,degree }: any) {
+function PeakOfTheDay({ arrow,degree }: Props) {
    let [fontsLoaded] = useFonts({
       Barlow_300Light,
    });

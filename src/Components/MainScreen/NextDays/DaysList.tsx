@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Day from './NextDay';
 import { Context } from '../../Utils/Context';
 import moment from 'moment';

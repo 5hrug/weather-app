@@ -7,11 +7,8 @@ import {
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 import { useContext } from 'react';
-interface Props {
-   day?: string;
-   WeatherIcon?: 'sunny' | 'windy';
-}
-function ItemMainValue(props: Props) {
+
+function ItemMainValue() {
    const { data } = useContext(Context);
 
    let [fontsLoaded] = useFonts({

@@ -1,19 +1,21 @@
-import React, { useContext, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useContext } from 'react';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {
    useFonts,
    Barlow_400Regular,
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 import { Context } from '../Utils/Context';
+interface Props {
+   city: string;
+   temp: number;
+}
 
-function City({ city,temp }: any) {
-
+function City({ city, temp }: Props) {
    let [fontsLoaded] = useFonts({
       Barlow_400Regular,
       Barlow_300Light,
    });
-
    const { handlePressedCity } = useContext(Context);
 
    return (
@@ -24,7 +26,9 @@ function City({ city,temp }: any) {
                onPress={() => handlePressedCity(city)}>
                <>
                   <Text style={styles.city}>{city}</Text>
-                  <Text style={styles.temperature}>{Math.round(temp)}&deg;C</Text>
+                  <Text style={styles.temperature}>
+                     {Math.round(temp)}&deg;C
+                  </Text>
                </>
             </TouchableOpacity>
          )}
