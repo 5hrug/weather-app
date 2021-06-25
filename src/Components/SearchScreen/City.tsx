@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/barlow';
 import { Context } from '../Utils/Context';
 
-function City({ city }: any) {
+function City({ city,temp }: any) {
 
    let [fontsLoaded] = useFonts({
       Barlow_400Regular,
@@ -24,7 +24,7 @@ function City({ city }: any) {
                onPress={() => handlePressedCity(city)}>
                <>
                   <Text style={styles.city}>{city}</Text>
-                  <Text style={styles.temperature}>35&deg;C</Text>
+                  <Text style={styles.temperature}>{Math.round(temp)}&deg;C</Text>
                </>
             </TouchableOpacity>
          )}

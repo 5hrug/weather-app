@@ -4,17 +4,17 @@ import HeaderLocation from './HeaderLocation';
 import moment from 'moment';
 
 function Header({ pressHandler }: any) {
-   const [tim, setTime] = useState(
+   const [time, setTime] = useState(
       moment().format('dddd, DD MMM YYYY | hh:mmA')
   );
   
    useEffect(() => {
       setTime(moment().format('dddd, DD MMM YYYY | hh:mmA'));
-   }, [tim]);
+   }, [time]);
 
    return (
       <View style={styles.container}>
-         <Text style={styles.timeDateText}>{tim}</Text>
+         <Text style={styles.timeDateText}>{time}</Text>
          <HeaderLocation pressHandler={pressHandler} />
       </View>
    );

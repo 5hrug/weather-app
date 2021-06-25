@@ -12,6 +12,7 @@ import {
 import City from './City';
 import { useState } from 'react';
 import { useNetInfo } from '@react-native-community/netinfo';
+import { useEffect } from 'react';
 
 const axios = require('axios').default;
 
@@ -20,8 +21,13 @@ const height = Dimensions.get('window').height;
 function Panel() {
    const netInfo = useNetInfo();
 
-   const { loading } = useContext(Context);
+   const { loading, allCities, fetchAllCities } = useContext(Context);
    const [searchedCity, setSearchedCity] = useState('');
+
+   useEffect(() => {
+      fetchAllCities();
+   },[]);
+
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
       Barlow_500Medium_Italic,
@@ -54,10 +60,11 @@ function Panel() {
                      }}
                   />
                </View>
-               {cities
-                  .filter((city) => city.toLowerCase().startsWith(searchedCity.toLowerCase()))
-                  .map((city, i) => {
-                     return <City key={city} city={city} />;
+               
+               {allCities && allCities
+                  .filter((city: any) => city.data.name.toLowerCase().startsWith(searchedCity.toLowerCase()))
+                  .map((city: any) => {
+                     return <City key={city.data.id} city={city.data.name}  temp={city.data.main.temp} />;
                   })}
             </View>
          )}
