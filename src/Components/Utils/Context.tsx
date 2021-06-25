@@ -32,7 +32,10 @@ const ContextProvider = ({ children }: any) => {
          setPressedCity(city);
          setloading(false);
          setchangePanel(!changePanel);
-      });
+      }).catch(function (error) {
+         setloading(false);
+         console.log(error);
+       })
    };
 
    return (

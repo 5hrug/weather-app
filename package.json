@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/barlow": "^0.1.0",
+    "@react-native-community/netinfo": "^6.0.0",
     "@types/rn-swipeable-panel": "^1.2.2",
     "axios": "^0.21.1",
     "expo": "~41.0.1",

@@ -11,12 +11,15 @@ import {
 } from '@expo-google-fonts/barlow';
 import City from './City';
 import { useState } from 'react';
+import { useNetInfo } from '@react-native-community/netinfo';
 
 const axios = require('axios').default;
 
 const height = Dimensions.get('window').height;
 
 function Panel() {
+   const netInfo = useNetInfo();
+
    const { loading } = useContext(Context);
    const [searchedCity, setSearchedCity] = useState('');
    let [fontsLoaded] = useFonts({
@@ -31,6 +34,8 @@ function Panel() {
                   { loading && <ActivityIndicator style={styles.activityIndicator} size="large" color="#000000" />}
 
                <Text style={styles.title}>Location</Text>
+               {!netInfo.isConnected && <Text style={styles.connection}>Waiting for connection</Text>}
+
                <View style={styles.wrapper}>
                   <Ionicons
                      style={styles.icon}
@@ -38,10 +43,12 @@ function Panel() {
                      size={19}
                      color='black'
                   />
+
                   <TextInput
                      style={styles.input}
                      placeholder='Search city ...'
                      underlineColorAndroid='transparent'
+                     value={searchedCity}
                      onChangeText={(value) => {
                         setSearchedCity(value);
                      }}
@@ -74,6 +81,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       height: 40,
       marginVertical: 20,
+   },
+   connection: {
+      alignSelf: 'center',
+      marginTop: 10,
+      fontFamily: 'Barlow_500Medium_Italic',
+
    },
    title: {
       alignSelf: 'center',
