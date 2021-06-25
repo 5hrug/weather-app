@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/cloudy.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.shrug53.weatherapp"
     },
     "web": {
       "favicon": "./assets/cloudy.png"

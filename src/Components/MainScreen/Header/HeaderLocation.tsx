@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
    },
    icon: {
       marginLeft: 3,
+      width: 13,
+      height: 13,
    },
    locationText: {
       color: '#0DA0EA',

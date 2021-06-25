@@ -1,26 +1,41 @@
 import React, { useContext } from 'react';
-import { StyleSheet, ImageBackground, Dimensions } from 'react-native';
+import { View, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import { Context } from '../Components/Utils/Context';
 import SearchPanel from '../Components/SearchScreen/SearchPanel';
 import Panel from '../Components/MainScreen/Panel';
 
-const windowWidth = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 function MainScreen() {
    const { changePanel } = useContext(Context);
    return (
-      <>
+      <View style={styles.background}>
          <ImageBackground
             source={require('../../assets/graphic.jpg')}
             style={styles.graphic}
             imageStyle={{}}></ImageBackground>
          {changePanel ? <SearchPanel /> : <Panel />}
-      </>
+      </View>
    );
 }
 const styles = StyleSheet.create({
    graphic: {
-      height: windowWidth * 0.8,
+      height: height > width ? width * 0.8 : height / 2,
+
+   },
+   background: {
+      maxWidth: 500,
+      minWidth: height > width ? 0 : 500,
+      alignSelf: height > width ? 'auto' : 'center',
+      
+      shadowColor: '#000000',
+      shadowOffset: {
+         width: 0,
+         height: 500,
+      },
+      shadowOpacity: 0.4,
+      shadowRadius: 800,
    },
 });
 export default MainScreen;

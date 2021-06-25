@@ -20,6 +20,7 @@ import { useNetInfo } from '@react-native-community/netinfo';
 import { useEffect } from 'react';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 function Panel() {
    const netInfo = useNetInfo();
@@ -100,13 +101,14 @@ function Panel() {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#ffffff',
+      backgroundColor: height > width ? '#ffffff' : '#f8f8f8' ,
       width: '100%',
       position: 'absolute',
       top: 29,
-      height: height,
+      height: height-29,
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
+
    },
    wrapper: {
       flexDirection: 'row',
@@ -134,7 +136,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#F3F3F3',
       paddingLeft: 15,
       fontSize: 18,
-      // fontFamily: 'Barlow_500Medium_Italic',
    },
 
    icon: {
