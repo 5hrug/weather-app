@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
          height: 500,
       },
       shadowOpacity: 0.4,
-      shadowRadius: 800,
+      shadowRadius: height > width ? 0:800,
    },
 });
 export default MainScreen;

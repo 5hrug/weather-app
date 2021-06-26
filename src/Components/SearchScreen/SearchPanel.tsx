@@ -62,7 +62,6 @@ function Panel() {
                      size={19}
                      color='black'
                   />
-                  {console.log(searchedCity)}
                   <TextInput
                      style={[
                         styles.input,

@@ -23,7 +23,7 @@ function Header() {
 const styles = StyleSheet.create({
    container: {
       flexDirection: 'row',
-      
+      justifyContent: 'space-between',
    },
    timeDateText: {
       alignSelf: 'center',
