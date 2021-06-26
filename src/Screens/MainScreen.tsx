@@ -13,9 +13,9 @@ function MainScreen() {
       <View style={styles.background}>
          <ImageBackground
             source={require('../../assets/graphic.jpg')}
-            style={styles.graphic}
-            imageStyle={{}}></ImageBackground>
-         {changePanel ? <SearchPanel /> : <Panel />}
+            style={styles.graphic}></ImageBackground>
+         {changePanel ? <SearchPanel /> : <Panel />} 
+         {/* <Panel/> */}
       </View>
    );
 }
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
       minWidth: height > width ? 0 : 500,
       alignSelf: height > width ? 'auto' : 'center',
       
+      // for react-native-web
       shadowColor: '#000000',
       shadowOffset: {
          width: 0,

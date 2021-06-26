@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import {
    StyleSheet,
    Dimensions,
-   ScrollView,
+   
    ActivityIndicator,
+   Text,
+   View
 } from 'react-native';
 import DetailsList from './DetailItems/DetailsList';
 import { Context } from '../Utils/Context';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import MainRow from './MainRow/MainRow';
 import Header from './Header/Header';
@@ -19,7 +22,8 @@ function Panel() {
    const { loading } = useContext(Context);
 
    return (
-      <ScrollView style={styles.container}>
+
+      <ScrollView style={styles.container} >
          {loading && (
             <ActivityIndicator
                style={styles.activityIndicator}
@@ -32,13 +36,15 @@ function Panel() {
          <MainRow />
          <DetailsList />
          <NextDays />
-      </ScrollView>
+         </ScrollView>
+
    );
 }
 const styles = StyleSheet.create({
    container: {
       backgroundColor: '#ffffff',
       width: '100%',
+      flex: 1,
       position: 'absolute',
       top: height > width ? width * 0.8 * 0.93 : height / 2.67,
       height: height > width ? height - width * 0.8 : height / 1.6,
