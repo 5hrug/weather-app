@@ -43,13 +43,14 @@ const ContextProvider = ({ children }: any) => {
       // we know that all cities are already fetched
       let isAlreadyFetched = false;
       let dataIndex = 0;
-      for (const [i, v] of allCities.entries()) {
-         if (v.data.name == town) {
-            dataIndex = i;
-            isAlreadyFetched = true;
-            break;
+      if (allCities)
+         for (const [i, v] of allCities.entries()) {
+            if (v.data.name == town) {
+               dataIndex = i;
+               isAlreadyFetched = true;
+               break;
+            }
          }
-      }
 
       if (isAlreadyFetched) {
          axios

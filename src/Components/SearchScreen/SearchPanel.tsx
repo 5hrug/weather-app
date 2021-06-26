@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Context } from '../Utils/Context';
+import { cities } from '../Utils/Helpers';
 import {
    useFonts,
    Barlow_500Medium,
@@ -29,8 +30,8 @@ function Panel() {
    const [searchedCity, setSearchedCity] = useState('');
 
    useEffect(() => {
-      fetchAllCities();
-   }, []);
+      if (netInfo.isConnected) fetchAllCities();
+   }, [netInfo]);
 
    let [fontsLoaded] = useFonts({
       Barlow_500Medium,
@@ -76,22 +77,31 @@ function Panel() {
                   />
                </View>
 
-               {allCities &&
-                  allCities
-                     .filter((city: any) =>
-                        city.data.name
-                           .toLowerCase()
-                           .startsWith(searchedCity.toLowerCase())
-                     )
-                     .map((city: any) => {
-                        return (
-                           <City
-                              key={city.data.id}
-                              city={city.data.name}
-                              temp={city.data.main.temp}
-                           />
-                        );
-                     })}
+               {allCities
+                  ? allCities
+                       .filter((city: any) =>
+                          city.data.name
+                             .toLowerCase()
+                             .startsWith(searchedCity.toLowerCase())
+                       )
+                       .map((city: any) => {
+                          return (
+                             <City
+                                key={city.data.id}
+                                city={city.data.name}
+                                temp={city.data.main.temp}
+                             />
+                          );
+                       })
+                  : cities
+                       .filter((city: any) =>
+                          city
+                             .toLowerCase()
+                             .startsWith(searchedCity.toLowerCase())
+                       )
+                       .map((city: any) => {
+                          return <City key={city} city={city} />;
+                       })}
             </View>
          )}
       </>
@@ -101,14 +111,13 @@ function Panel() {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: height > width ? '#ffffff' : '#f8f8f8' ,
+      backgroundColor: height > width ? '#ffffff' : '#f8f8f8',
       width: '100%',
       position: 'absolute',
       top: 29,
-      height: height-29,
+      height: height - 29,
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
-
    },
    wrapper: {
       flexDirection: 'row',

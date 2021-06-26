@@ -6,17 +6,21 @@ import {
    Barlow_300Light,
 } from '@expo-google-fonts/barlow';
 import { Context } from '../Utils/Context';
+import { useNetInfo } from '@react-native-community/netinfo';
+
 interface Props {
    city: string;
-   temp: number;
+   temp?: number;
 }
 
 function City({ city, temp }: Props) {
+   const netInfo = useNetInfo();
+   const { handlePressedCity } = useContext(Context);
+
    let [fontsLoaded] = useFonts({
       Barlow_400Regular,
       Barlow_300Light,
    });
-   const { handlePressedCity } = useContext(Context);
 
    return (
       <>
@@ -26,9 +30,10 @@ function City({ city, temp }: Props) {
                onPress={() => handlePressedCity(city)}>
                <>
                   <Text style={styles.city}>{city}</Text>
-                  <Text style={styles.temperature}>
-                     {Math.round(temp)}&deg;C
-                  </Text>
+                  {netInfo.isConnected && <Text style={styles.temperature}>
+                     {temp && Math.round(temp)}
+                     &deg;C
+                  </Text>}
                </>
             </TouchableOpacity>
          )}
