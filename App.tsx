@@ -13,7 +13,6 @@ import ContextProvider from './src/Components/Utils/Context';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const height = Dimensions.get('window').height;
-const width = Dimensions.get('window').width;
 
 export default function App() {
    return (

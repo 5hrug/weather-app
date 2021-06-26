@@ -2,10 +2,7 @@ import React, { useContext } from 'react';
 import {
    StyleSheet,
    Dimensions,
-   
    ActivityIndicator,
-   Text,
-   View
 } from 'react-native';
 import DetailsList from './DetailItems/DetailsList';
 import { Context } from '../Utils/Context';

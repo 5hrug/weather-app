@@ -4,6 +4,7 @@ import {
    useFonts,
    Barlow_500Medium,
    Barlow_300Light,
+   Barlow_200ExtraLight_Italic,
 } from '@expo-google-fonts/barlow';
 interface Props {
    icon: any;
@@ -21,7 +22,7 @@ function DetailItem({ icon, term, value, scale }: Props) {
       <>
          {fontsLoaded && (
             <View style={styles.container}>
-               <Image source={icon} />
+               <Image style={styles.icon} source={icon} />
                <Text style={styles.value}>
                   {value} {scale}
                </Text>
@@ -48,6 +49,10 @@ const styles = StyleSheet.create({
       color: '#999999',
       fontSize: 10,
       fontFamily: 'Barlow_500Medium',
+   },
+   icon: {
+      width: 25,
+      height: 25,
    },
 });
 export default DetailItem;

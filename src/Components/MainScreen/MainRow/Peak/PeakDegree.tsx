@@ -34,7 +34,10 @@ const styles = StyleSheet.create({
       fontSize: 16,
       fontFamily: 'Barlow_300Light',
    },
-   arrow: {},
+   arrow: {
+         width: 5,
+         height:8,
+   },
 });
 
 export default PeakOfTheDay;

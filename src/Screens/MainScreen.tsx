@@ -15,7 +15,6 @@ function MainScreen() {
             source={require('../../assets/graphic.jpg')}
             style={styles.graphic}></ImageBackground>
          {changePanel ? <SearchPanel /> : <Panel />} 
-         {/* <Panel/> */}
       </View>
    );
 }

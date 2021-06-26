@@ -15,14 +15,14 @@ function Day({ icon, day, top, bot }: Props) {
       <>
          {fontsLoaded && (
             <View style={styles.container}>
-               <Image source={icon} />
+               <Image style={styles.icon} source={icon} />
                <Text style={styles.day}>{day}</Text>
                <View style={styles.group}>
                   <Text style={styles.peaks}>{top}&deg;C</Text>
-                  <Image source={require('../../../../assets/arrowup.png')} />
+                  <Image style={styles.arrows} source={require('../../../../assets/arrowup.png')} />
                   <View style={styles.gap}></View>
                   <Text style={styles.peaks}>{bot}&deg;C</Text>
-                  <Image source={require('../../../../assets/arrowdown.png')} />
+                  <Image style={styles.arrows} source={require('../../../../assets/arrowdown.png')} />
                </View>
             </View>
          )}
@@ -48,6 +48,14 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.1,
       shadowRadius: 24,
       elevation: 10,
+   },
+   arrows: {
+      width: 5,
+      height:8,
+   },
+   icon: {
+      width: 25,
+      height:25,
    },
    day: {
       fontSize: 16,
